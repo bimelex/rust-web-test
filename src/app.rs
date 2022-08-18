@@ -1,7 +1,16 @@
+use egui::*;
+use plot::{
+    Bar, BarChart, BoxElem, BoxPlot, BoxSpread, Plot, Legend
+};
+
+
 /// We derive Deserialize/Serialize so we can persist app state on shutdown.
 #[derive(serde::Deserialize, serde::Serialize)]
 #[serde(default)] // if we add new fields, give them default values when deserializing old state
+
+
 pub struct TemplateApp {
+
     // Example stuff:
     label: String,
 
@@ -37,75 +46,182 @@ impl TemplateApp {
 }
 
 impl eframe::App for TemplateApp {
+    /// Called each time the UI needs repainting, which may be many times per second.
+    /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
+    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
+        use egui::*;
+
+        TopBottomPanel::top("top_panel").show(ctx, |ui| {
+            // The top panel is often a good place for a menu bar:
+            menu::bar(ui, |ui| {
+
+                egui::widgets::global_dark_light_mode_switch(ui);
+
+                ui.menu_button("File", |ui| {
+                    if ui.button("Order").clicked() {
+                        ui.ctx().memory().reset_areas();
+                        ui.close_menu();
+                    }
+                    if ui.button( "ADD").clicked(){
+                        ui.close_menu();
+                    }
+                    if ui.button("Quit").clicked() {
+                        frame.quit();
+                    }
+
+                });
+
+
+            });
+
+        });
+
+        Window::new("Histogram").open(&mut true)
+            .enabled(true)
+            .vscroll(false)
+            .resizable(true)
+            .default_size([250.0, 150.0])
+            .show(ctx, |ui| {
+                CentralPanel::default().show_inside(ui, |ui| {
+                    let chart = BarChart::new(
+                        (-395..=395)
+                            .step_by(10)
+                            .map(|x| x as f64 * 0.01)
+                            .map(|x| {
+                                (
+                                    x,
+                                    (-x * x / 2.0).exp() / (2.0 * std::f64::consts::PI).sqrt(),
+                                )
+                            })
+                            // The 10 factor here is purely for a nice 1:1 aspect ratio
+                            .map(|(x, f)| Bar::new(x, f * 10.0).width(0.095))
+                            .collect(),
+                    )
+                        .color(Color32::LIGHT_BLUE)
+                        .name("Normal Distribution");
+
+                    Plot::new("Normal Distribution Demo")
+                        .legend(Legend::default())
+                        .data_aspect(1.0)
+                        .show(ui, |plot_ui| plot_ui.bar_chart(chart)).response;
+                });
+                ui.allocate_space(ui.available_size());
+                ui.close_menu();
+            });
+
+
+        Window::new("Stacked Bar Chart")
+            .vscroll(false)
+            .resizable(true)
+            .default_size([250.0, 150.0])
+            .show(ctx, |ui| {
+                CentralPanel::default().show_inside(ui, |ui| {
+                    let chart1 = BarChart::new(vec![
+                        Bar::new(0.5, 1.0).name("Day 1"),
+                        Bar::new(1.5, 3.0).name("Day 2"),
+                        Bar::new(2.5, 1.0).name("Day 3"),
+                        Bar::new(3.5, 2.0).name("Day 4"),
+                        Bar::new(4.5, 4.0).name("Day 5"),
+                    ])
+                        .width(0.7)
+                        .name("Set 1");
+
+                    let chart2 = BarChart::new(vec![
+                        Bar::new(0.5, 1.0),
+                        Bar::new(1.5, 1.5),
+                        Bar::new(2.5, 0.1),
+                        Bar::new(3.5, 0.7),
+                        Bar::new(4.5, 0.8),
+                    ])
+                        .width(0.7)
+                        .name("Set 2")
+                        .stack_on(&[&chart1]);
+
+                    let chart3 = BarChart::new(vec![
+                        Bar::new(0.5, -0.5),
+                        Bar::new(1.5, 1.0),
+                        Bar::new(2.5, 0.5),
+                        Bar::new(3.5, -1.0),
+                        Bar::new(4.5, 0.3),
+                    ])
+                        .width(0.7)
+                        .name("Set 3")
+                        .stack_on(&[&chart1, &chart2]);
+
+                    let chart4 = BarChart::new(vec![
+                        Bar::new(0.5, 0.5),
+                        Bar::new(1.5, 1.0),
+                        Bar::new(2.5, 0.5),
+                        Bar::new(3.5, -0.5),
+                        Bar::new(4.5, -0.5),
+                    ])
+                        .width(0.7)
+                        .name("Set 4")
+                        .stack_on(&[&chart1, &chart2, &chart3]);
+
+                    Plot::new("Stacked Bar Chart Demo")
+                        .legend(Legend::default())
+                        .data_aspect(1.0)
+                        .show(ui, |plot_ui| {
+                            plot_ui.bar_chart(chart1);
+                            plot_ui.bar_chart(chart2);
+                            plot_ui.bar_chart(chart3);
+                            plot_ui.bar_chart(chart4);
+                        }).response;
+                });
+                ui.allocate_space(ui.available_size());
+                ui.close_menu();
+            });
+
+        Window::new("Box Plot")
+            .vscroll(false)
+            .resizable(true)
+            .default_size([250.0, 150.0])
+            .show(ctx, |ui| {
+                CentralPanel::default().show_inside(ui, |ui| {
+                    let yellow = Color32::from_rgb(248, 252, 168);
+                    let box1 =  BoxPlot::new(vec![
+                        BoxElem::new(0.5, BoxSpread::new(1.5, 2.2, 2.5, 2.6, 3.1)).name("Day 1"),
+                        BoxElem::new(2.5, BoxSpread::new(0.4, 1.0, 1.1, 1.4, 2.1)).name("Day 2"),
+                        BoxElem::new(4.5, BoxSpread::new(1.7, 2.0, 2.2, 2.5, 2.9)).name("Day 3"),
+                    ])
+                        .name("Experiment A");
+
+                    let box2 = BoxPlot::new(vec![
+                        BoxElem::new(1.0, BoxSpread::new(0.2, 0.5, 1.0, 2.0, 2.7)).name("Day 1"),
+                        BoxElem::new(3.0, BoxSpread::new(1.5, 1.7, 2.1, 2.9, 3.3))
+                            .name("Day 2: interesting")
+                            .stroke(Stroke::new(1.5, yellow))
+                            .fill(yellow.linear_multiply(0.2)),
+                        BoxElem::new(5.0, BoxSpread::new(1.3, 2.0, 2.3, 2.9, 4.0)).name("Day 3"),
+                    ])
+                        .name("Experiment B");
+
+                    let box3 = BoxPlot::new(vec![
+                        BoxElem::new(1.5, BoxSpread::new(2.1, 2.2, 2.6, 2.8, 3.0)).name("Day 1"),
+                        BoxElem::new(3.5, BoxSpread::new(1.3, 1.5, 1.9, 2.2, 2.4)).name("Day 2"),
+                        BoxElem::new(5.5, BoxSpread::new(0.2, 0.4, 1.0, 1.3, 1.5)).name("Day 3"),
+                    ])
+                        .name("Experiment C");
+
+                    Plot::new("Box Plot Demo")
+                        .legend(Legend::default())
+                        .show(ui, |plot_ui| {
+                            plot_ui.box_plot(box1);
+                            plot_ui.box_plot(box2);
+                            plot_ui.box_plot(box3);
+                        }).response;
+                });
+
+                ui.allocate_space(ui.available_size());
+
+            });
+
+        }
+
     /// Called by the frame work to save state before shutdown.
     fn save(&mut self, storage: &mut dyn eframe::Storage) {
         eframe::set_value(storage, eframe::APP_KEY, self);
     }
 
-    /// Called each time the UI needs repainting, which may be many times per second.
-    /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
-    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
-        let Self { label, value } = self;
-
-        // Examples of how to create different panels and windows.
-        // Pick whichever suits you.
-        // Tip: a good default choice is to just keep the `CentralPanel`.
-        // For inspiration and more examples, go to https://emilk.github.io/egui
-
-        egui::TopBottomPanel::top("top_panel").show(ctx, |ui| {
-            // The top panel is often a good place for a menu bar:
-            egui::menu::bar(ui, |ui| {
-                ui.menu_button("File", |ui| {
-                    if ui.button("Quit").clicked() {
-                        frame.quit();
-                    }
-                });
-            });
-        });
-
-        egui::SidePanel::left("side_panel").show(ctx, |ui| {
-            ui.heading("Side Panel");
-
-            ui.horizontal(|ui| {
-                ui.label("Write something: ");
-                ui.text_edit_singleline(label);
-            });
-
-            ui.add(egui::Slider::new(value, 0.0..=10.0).text("value"));
-            if ui.button("Increment").clicked() {
-                *value += 1.0;
-            }
-
-            ui.with_layout(egui::Layout::bottom_up(egui::Align::LEFT), |ui| {
-                ui.horizontal(|ui| {
-                    ui.spacing_mut().item_spacing.x = 0.0;
-                    ui.label("powered by ");
-                    ui.hyperlink_to("egui", "https://github.com/emilk/egui");
-                    ui.label(" and ");
-                    ui.hyperlink_to("eframe", "https://github.com/emilk/egui/tree/master/eframe");
-                });
-            });
-        });
-
-        egui::CentralPanel::default().show(ctx, |ui| {
-            // The central panel the region left after adding TopPanel's and SidePanel's
-
-            ui.heading("eframe template");
-            ui.hyperlink("https://github.com/emilk/eframe_template");
-            ui.add(egui::github_link_file!(
-                "https://github.com/emilk/eframe_template/blob/master/",
-                "Source code."
-            ));
-            egui::warn_if_debug_build(ui);
-        });
-
-        if false {
-            egui::Window::new("Window").show(ctx, |ui| {
-                ui.label("Windows can be moved by dragging them.");
-                ui.label("They are automatically sized based on contents.");
-                ui.label("You can turn on resizing and scrolling if you like.");
-                ui.label("You would normally chose either panels OR windows.");
-            });
-        }
-    }
 }
