@@ -7,7 +7,15 @@ fn main() {
     // Log to stdout (if you run with `RUST_LOG=debug`).
     tracing_subscriber::fmt::init();
 
-    let native_options = eframe::NativeOptions::default();
+    let native_options = eframe::NativeOptions{
+
+        initial_window_size: Some([1200.0, 1024.0].into()),
+
+        ..Default::default()
+
+    };
+
+    // let native_options = eframe::NativeOptions::default();
     eframe::run_native(
         "Rust Web Test",
         native_options,
