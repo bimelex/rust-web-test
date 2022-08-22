@@ -47,7 +47,7 @@ impl TemplateApp {
 
 impl eframe::App for TemplateApp {
     /// Called each time the UI needs repainting, which may be many times per second.
-    /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
+    /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPane\l`, `Window` or `Area`.
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
         use egui::*;
 
@@ -62,10 +62,7 @@ impl eframe::App for TemplateApp {
                         ui.ctx().memory().reset_areas();
                         ui.close_menu();
                     }
-                    if ui.button("Quit").clicked() {
-                        frame.quit();
-                    }
-
+                   
                 });
 
 
