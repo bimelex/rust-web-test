@@ -1,0 +1,114 @@
+
+qjavascript:S3776"URefactor this function to reduce its Cognitive Complexity from 258 to the 15 allowed.(ˆè²Ô
+Njavascript:S1117N"-'ptr' is already declared in the upper scope.(°ŞÂêùÿÿÿÿ
+Vjavascript:S1121e"5Extract the assignment of "len" from this expression.(¹äšùÿÿÿÿ
+Qjavascript:S1135¾"4Complete the task associated to this "TODO" comment.(Â“À‚
+Kjavascript:S3504Ş")Unexpected var, use let or const instead.(¾§ûÿÿÿÿ
+Fjavascript:S3504ß")Unexpected var, use let or const instead.(Ğ×›ñ
+Kjavascript:S3504")Unexpected var, use let or const instead.(¾§ûÿÿÿÿ
+Fjavascript:S3504‚")Unexpected var, use let or const instead.(Ğ×›ñ
+Gjavascript:S4326¤"+Redundant use of `await` on a return value.(®ÌP
+Wjavascript:S107¼";Function has too many parameters (8). Maximum allowed is 7.(ƒ¤òŞ
+Fjavascript:S3504ì")Unexpected var, use let or const instead.(áÌ”€
+Kjavascript:S3504í")Unexpected var, use let or const instead.(º‹áûÿÿÿÿ
+xjavascript:S1488÷"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ÙÎ¢‚
+xjavascript:S1488€"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Ò®¾ƒ
+ajavascript:S3358€"DExtract this nested ternary operation into an independent statement.(Ò®¾ƒ
+}javascript:S1488„"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Äã€’ûÿÿÿÿ
+Xjavascript:S107‘"<Function has too many parameters (10). Maximum allowed is 7.(‰ãƒ£
+]javascript:S107”"<Function has too many parameters (10). Maximum allowed is 7.(Šõâ›ıÿÿÿÿ
+Wjavascript:S107—"<Function has too many parameters (10). Maximum allowed is 7.(˜¸æ
+}javascript:S1488õ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Û°ªÔûÿÿÿÿ
+}javascript:S1488ù"[Immediately return this expression instead of assigning it to the temporary variable "ret".(•«ûïüÿÿÿÿ
+Fjavascript:S3504†")Unexpected var, use let or const instead.(áÌ”€
+Kjavascript:S3504‡")Unexpected var, use let or const instead.(º‹áûÿÿÿÿ
+Fjavascript:S3504‘")Unexpected var, use let or const instead.(áÌ”€
+Kjavascript:S3504’")Unexpected var, use let or const instead.(º‹áûÿÿÿÿ
+}javascript:S1488Ä"[Immediately return this expression instead of assigning it to the temporary variable "ret".(å›¤ûÿÿÿÿ
+xjavascript:S1488Ü"[Immediately return this expression instead of assigning it to the temporary variable "ret".(â¤ªÖ
+xjavascript:S1488ğ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(•ÅÖ
+}javascript:S1488ô"[Immediately return this expression instead of assigning it to the temporary variable "ret".(â†Ó¯úÿÿÿÿ
+}javascript:S1488ø"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Ÿê£“ÿÿÿÿÿ
+}javascript:S1488ƒ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(»‹²³üÿÿÿÿ
+}javascript:S1488‡"[Immediately return this expression instead of assigning it to the temporary variable "ret".(±¯È°ıÿÿÿÿ
+}javascript:S1488"[Immediately return this expression instead of assigning it to the temporary variable "ret".(™Õµ“øÿÿÿÿ
+}javascript:S1488¦"[Immediately return this expression instead of assigning it to the temporary variable "ret".(§­Öìıÿÿÿÿ
+xjavascript:S1488ª"[Immediately return this expression instead of assigning it to the temporary variable "ret".(®°ãù
+}javascript:S1488±"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¨­Û¯úÿÿÿÿ
+}javascript:S1488¼"[Immediately return this expression instead of assigning it to the temporary variable "ret".(š¨âÁÿÿÿÿÿ
+xjavascript:S1488À"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Åê‘
+xjavascript:S1488Ä"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ò¦İî
+}javascript:S1488È"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¸ñºêüÿÿÿÿ
+xjavascript:S1488Ì"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ëÌÔ
+}javascript:S1488Ğ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Ë³Œ¹øÿÿÿÿ
+wjavascript:S1488í"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¡‰Ù5
+xjavascript:S1488õ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Áéòˆ
+xjavascript:S1488ù"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ßãƒ‚
+xjavascript:S1488ı"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ğ‚±
+}javascript:S1488"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¯æÙÜúÿÿÿÿ
+Fjavascript:S3504Š")Unexpected var, use let or const instead.(áÌ”€
+Kjavascript:S3504‹")Unexpected var, use let or const instead.(º‹áûÿÿÿÿ
+}javascript:S1488å"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ƒú¡­ÿÿÿÿÿ
+}javascript:S1488é"[Immediately return this expression instead of assigning it to the temporary variable "ret".(‰»Ø‚úÿÿÿÿ
+xjavascript:S1488í"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ÃŞÿ
+}javascript:S1488õ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ğ‚¥Àşÿÿÿÿ
+xjavascript:S1488ù"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Õ¡›½
+}javascript:S1488„"[Immediately return this expression instead of assigning it to the temporary variable "ret".(½¸ùÆûÿÿÿÿ
+xjavascript:S1488ˆ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ËÿŸô
+xjavascript:S1488Œ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(À±”æ
+xjavascript:S1488–"[Immediately return this expression instead of assigning it to the temporary variable "ret".(àÓ‘ø
+ujavascript:S4144œ"XUpdate this function so that its implementation is not identical to the one on line 401.(å‡«
+Xjavascript:S107œ"<Function has too many parameters (10). Maximum allowed is 7.(å‡«
+ujavascript:S4144Ÿ"XUpdate this function so that its implementation is not identical to the one on line 404.(¶ìûµ
+Xjavascript:S107Ÿ"<Function has too many parameters (10). Maximum allowed is 7.(¶ìûµ
+}javascript:S1488ı"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Û°ªÔûÿÿÿÿ
+}javascript:S1488"[Immediately return this expression instead of assigning it to the temporary variable "ret".(•«ûïüÿÿÿÿ
+zjavascript:S4144„"XUpdate this function so that its implementation is not identical to the one on line 508.(óè©¦úÿÿÿÿ
+ujavascript:S4144ˆ"XUpdate this function so that its implementation is not identical to the one on line 512.(ãÒ§‚
+ujavascript:S4144Œ"XUpdate this function so that its implementation is not identical to the one on line 516.(Ş—Èâ
+Fjavascript:S3504")Unexpected var, use let or const instead.(áÌ”€
+Kjavascript:S3504")Unexpected var, use let or const instead.(º‹áûÿÿÿÿ
+zjavascript:S4144—"XUpdate this function so that its implementation is not identical to the one on line 527.(ğ¶¸ªûÿÿÿÿ
+Fjavascript:S3504™")Unexpected var, use let or const instead.(áÌ”€
+Kjavascript:S3504š")Unexpected var, use let or const instead.(º‹áûÿÿÿÿ
+xjavascript:S1488Ğ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Ğ›óõ
+xjavascript:S1488Û"[Immediately return this expression instead of assigning it to the temporary variable "ret".(®°ãù
+}javascript:S1488ß"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¨­Û¯úÿÿÿÿ
+}javascript:S1488ã"[Immediately return this expression instead of assigning it to the temporary variable "ret".(Ïæˆ°úÿÿÿÿ
+}javascript:S1488ç"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ñä¯Õùÿÿÿÿ
+Fjavascript:S3504ì")Unexpected var, use let or const instead.(áÌ”€
+Kjavascript:S3504í")Unexpected var, use let or const instead.(º‹áûÿÿÿÿ
+}javascript:S1488õ"[Immediately return this expression instead of assigning it to the temporary variable "ret".(™Õµ“øÿÿÿÿ
+}javascript:S1488ˆ	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(™Õµ“øÿÿÿÿ
+wjavascript:S1488	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¸Ğãg
+xjavascript:S1488”	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¹Ä¯¦
+xjavascript:S1488˜	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ò¦İî
+}javascript:S1488œ	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¸ñºêüÿÿÿÿ
+xjavascript:S1488 	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ëÌÔ
+xjavascript:S1488¤	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ƒ¸×
+}javascript:S1488¯	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(¨ÀÔ¼üÿÿÿÿ
+}javascript:S1488³	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ÑÙÛıÿÿÿÿ
+xjavascript:S1488·	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(•¼î¾
+}javascript:S1488»	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(à ¢Ëùÿÿÿÿ
+}javascript:S1488Ó	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(™Õµ“øÿÿÿÿ
+xjavascript:S1488ï	"[Immediately return this expression instead of assigning it to the temporary variable "ret".(ŸÉ÷“
+}javascript:S1488š
+"[Immediately return this expression instead of assigning it to the temporary variable "ret".(™Õµ“øÿÿÿÿ
+|javascript:S1172·
+"_Remove the unused function parameter "arg2" or rename it to "_arg2" to make intention explicit.(ş¸¦İ
+|javascript:S1172»
+"_Remove the unused function parameter "arg2" or rename it to "_arg2" to make intention explicit.(—Î¶‹
+|javascript:S1172¿
+"_Remove the unused function parameter "arg2" or rename it to "_arg2" to make intention explicit.(Í†«²
+javascript:S1172Ã
+"_Remove the unused function parameter "arg2" or rename it to "_arg2" to make intention explicit.(¨¶¬¦ÿÿÿÿÿ
+javascript:S1172Ç
+"_Remove the unused function parameter "arg2" or rename it to "_arg2" to make intention explicit.(Ïªîìøÿÿÿÿ
+‡javascript:S1172Ï
+"eRemove the unused function parameter "imports" or rename it to "_imports" to make intention explicit.(«å‡­ÿÿÿÿÿ
+‘javascript:S1172Ï
+"oRemove the unused function parameter "maybe_memory" or rename it to "_maybe_memory" to make intention explicit.(«å‡­ÿÿÿÿÿ
+Ijavascript:S1186Ï
+"'Unexpected empty function 'initMemory'.(«å‡­ÿÿÿÿÿ
+?javascript:S1481Ş
+""Remove unused function 'initSync'.(ÏÔÛà

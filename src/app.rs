@@ -72,7 +72,7 @@ impl eframe::App for TemplateApp {
             });
 
         });
-        CentralPanel::default().show(ctx, |ui| {
+        CentralPanel::default().show(ctx, |_ui| {
             Window::new("Histogram").open(&mut true)
                 .enabled(true)
                 .vscroll(false)
