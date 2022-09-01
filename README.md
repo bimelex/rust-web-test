@@ -1,3 +1,7 @@
+# 실행 화면
+<img src="https://user-images.githubusercontent.com/90304072/187863228-156bc157-6282-4523-bef8-f468ada44937.png" width="750">
+
+
 # eframe template
 
 [![dependency status](https://deps.rs/repo/github/emilk/eframe_template/status.svg)](https://deps.rs/repo/github/emilk/eframe_template)
